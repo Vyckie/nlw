@@ -25,6 +25,12 @@ header{
     margin-bottom: 53px;
 }
 
+#cards{
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+}
+
 .card{
     border: 1px;
     padding: 32px 23px;
@@ -53,7 +59,7 @@ header{
 .card h2 span{
     color: #E1E1E6;
     font-size:14px;
-    text-transform: uppercasse;
+    text-transform: uppercase;
 }
 
 .card ul{
