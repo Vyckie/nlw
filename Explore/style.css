@@ -4,13 +4,28 @@
     box-sizing: border-box;
 }
 
+:root{
+    --card-color-primary: #f7dd43;
+    --card-title-border-color: #746615;
+}
+
+body.blue{
+    --card-color-primary: #338Af3;
+    --card-title-border-color: #338Af3;
+}
+
+body.green{
+    --card-color-primary: #047c3f;
+    --card-title-border-color: #047c3f;
+}
+
 ul{
     list-style: none;
 }
 
 body{
     background-color: #121214;
-    background-image: url(./assets/bg.svg);
+    background-image: url(./assets/bg-yellow.svg);
     background-position-x: center;
     background-position-y: 50%;
 }
@@ -18,11 +33,13 @@ body{
 #app{
     border: 1px;
     width: fit-content;
-    margin: 52px auto;
+    margin: auto;
+    padding: 52px;
 }
 
 header{
     margin-bottom: 53px;
+    text-align: center;
 }
 
 #cards{
@@ -35,8 +52,9 @@ header{
     border: 1px;
     padding: 32px 23px;
     text-align: center;
+
     background: #1d1c19;
-    border-bottom: 2px solid #f7dd43;
+    border-bottom: 2px solid var(--card-color-primary);
     border-radius: 6px;
 }
 
@@ -44,16 +62,17 @@ header{
     display: flex;
     gap: 16px;
     justify-content: center;
+    align-items:center; //
 
     padding: 8px 16px;
-    border: 1px solid #746615;
+    border: 1px solid var(--card-title-border-color);
     border-radius: 6px;
 
     width: fit-content;
     margin-inline:auto;
     margin-bottom: 53px;
 
-    color: #F7DD43;
+    color: #f7dd43;
 }
 
 .card h2 span{
@@ -66,15 +85,68 @@ header{
     display: flex;
     flex-direction: column;
     gap: 24px;
+
+    width:270px;
 }
 
 .card ul li{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .card ul li + li{
     padding-top:24px;
-    border-top: 1px solid green;
+    border-top: 1px solid #323238;
+}
+
+.card ul li strong{
+    font-weight: 900;
+    font-size:36px;
+    line-heignt: 125%;
+
+    color:#E1E1E6;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+    transform: scale(1.1); // alterar tamanho dos componentes
+
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img{
+    transition: transform 0.3s;
+}
+
+.card{
+    animation: appear 0.7s
+}
+
+//.card:nth-child(2){
+//    animation-delay:0.1s;
+//}
+
+//.card:nth-child(3){
+//    animation-delay:0.2s;
+//}
+
+@keyframes appear{
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+@media(min-width: 700px){
+    #cards{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
