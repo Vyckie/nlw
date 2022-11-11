@@ -24,6 +24,20 @@ async function bootstrap() {
         return { pools}
     })
 
+    fastify.get('/users/count', async ()=>{
+        const users = await prisma.user.count()
+ 
+ 
+         return { users}
+     })
+
+     fastify.get('/guesses/count', async ()=>{
+        const guesses = await prisma.guess.count()
+ 
+ 
+         return { guesses}
+     })
+
     fastify.post('/pools', async(request,response)=>{
         const createPoolBody = z.object({
             title: z.string(),
